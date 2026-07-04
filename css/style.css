@@ -423,7 +423,7 @@ body.landing-active .site-footer { display: none; }
 
 .landing .slice:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=2560&auto=format&fit=crop'); background-position: center 30%; }
 .landing .slice:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1600160805984-2d44e4a1a903?w=2560&auto=format&fit=crop'); background-position: center 60%; }
-.landing .slice:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=2560&auto=format&fit=crop'); background-position: center 80%; }
+.landing .slice:nth-child(3) { background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ostuni_olive_grove_SS379-3339.jpg/1920px-Ostuni_olive_grove_SS379-3339.jpg'); background-position: center 55%; }
 
 .landing .slice::after {
   content: '';
