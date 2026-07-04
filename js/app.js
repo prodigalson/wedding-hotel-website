@@ -111,21 +111,56 @@
   }
 
   function viewHome() {
-    const days = Math.max(0, Math.ceil((new Date(CONFIG.WEDDING_DATE + "T12:00:00") - new Date()) / 86400000));
     app.innerHTML =
-      '<div class="fade-in has-sticky">' +
-      demoBanner() +
-      '<section class="hero">' +
-        '<div class="eyebrow">' + esc(t("tagline")) + "</div>" +
-        "<h1>" + esc(CONFIG.COUPLE_NAMES) + "</h1>" +
-        '<div class="date">' + esc(fmtDateLong(CONFIG.WEDDING_DATE)) + "</div>" +
-        '<div class="countdown">' + days + " " + esc(t("days_to_go")) + "</div>" +
-        '<div class="arch-photo"><img src="' + esc(CONFIG.HERO_IMAGE) + '" alt="' + esc(CONFIG.COUPLE_NAMES) + '" fetchpriority="high"></div>' +
-        '<p class="welcome">' + esc(hotelWelcome()) + "</p>" +
-        '<div class="olive-divider">' + oliveBranch + "</div>" +
-      "</section>" +
-      '<div class="sticky-cta"><a class="btn" href="#/hotels">' + esc(t("find_hotel")) + "</a></div>" +
+      '<div class="landing">' +
+        '<div class="montage-container">' +
+          '<div class="slice"></div>' +
+          '<div class="slice"></div>' +
+          '<div class="slice"></div>' +
+        "</div>" +
+        '<div class="cta-container">' +
+          '<button class="cta-button" id="bookHotelBtn">Book Hotel ' +
+            '<span class="arrow">' +
+              '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' +
+            "</span>" +
+          "</button>" +
+        "</div>" +
+        '<div class="ui-layer">' +
+          '<div class="top-meta">' +
+            '<div class="location-cluster">' +
+              '<div class="coord-text">40.7928&deg; N<br>17.1012&deg; E</div>' +
+              '<div class="loc-pill">' +
+                '<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>' +
+                "Italy" +
+              "</div>" +
+            "</div>" +
+          "</div>" +
+          '<h1 class="hero-title">Pug<br><span class="offset">lia<span class="dot">.</span></span>' +
+            '<span class="technical-notation">//region</span>' +
+          "</h1>" +
+          '<svg class="geometry" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">' +
+            '<circle cx="80" cy="80" r="60" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1"></circle>' +
+            '<circle cx="120" cy="120" r="60" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1"></circle>' +
+            '<line x1="20" y1="80" x2="140" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 4"></line>' +
+          "</svg>" +
+          '<div class="sys-code">|0|8|3|</div>' +
+          '<div class="bottom-meta">' +
+            '<div class="season-tag">' +
+              '<div class="season-title">Summer<br>Season</div>' +
+              '<div class="season-subtitle">High peak ' +
+                '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' +
+              "</div>" +
+            "</div>" +
+            '<div class="credits">' +
+              '<div class="credits-top">&copy; <span>2024</span></div>' +
+              '<div class="credits-bottom">Coastal Collection</div>' +
+            "</div>" +
+          "</div>" +
+        "</div>" +
       "</div>";
+    document.getElementById("bookHotelBtn").addEventListener("click", () => {
+      location.hash = "#/hotels";
+    });
   }
   function hotelWelcome() {
     return { en: CONFIG.WELCOME_EN, pt: CONFIG.WELCOME_PT, it: CONFIG.WELCOME_IT }[getLang()] || CONFIG.WELCOME_EN;
@@ -366,6 +401,7 @@
     renderChrome();
     const hash = location.hash || "#/";
     const parts = hash.replace(/^#\//, "").split("/");
+    document.body.classList.toggle("landing-active", !["hotels", "hotel", "reserve", "success"].includes(parts[0]));
     if (parts[0] === "hotels") return viewHotels();
     if (parts[0] === "hotel" && parts[1]) return viewHotel(decodeURIComponent(parts[1]));
     if (parts[0] === "reserve" && parts[1]) return viewReserve(decodeURIComponent(parts[1]));
