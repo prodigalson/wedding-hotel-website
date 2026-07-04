@@ -88,7 +88,7 @@
   function renderChrome() {
     document.getElementById("brand").textContent = initials();
     document.getElementById("footerNames").textContent = CONFIG.COUPLE_NAMES;
-    document.getElementById("footerPlace").textContent = t("tagline") + " · " + fmtDate(CONFIG.WEDDING_DATE);
+    document.getElementById("footerPlace").textContent = t("tagline") + " · " + fmtDateRange(CONFIG.WEDDING_START, CONFIG.WEDDING_END);
     const wa = document.getElementById("footerWhatsApp");
     wa.innerHTML = CONFIG.WHATSAPP
       ? '<a class="whatsapp-link" target="_blank" rel="noopener" href="https://wa.me/' + esc(CONFIG.WHATSAPP) + '">' + esc(t("whatsapp_us")) + "</a>" : "";
@@ -241,8 +241,7 @@
     const found = findRoom(roomId);
     if (!found) { location.hash = "#/hotels"; return; }
     const { hotel, room } = found;
-    const wd = CONFIG.WEDDING_DATE;
-    const defArrival = addDays(wd, -1), defDeparture = addDays(wd, 1);
+    const defArrival = CONFIG.WEDDING_START, defDeparture = CONFIG.WEDDING_END;
 
     app.innerHTML =
       '<div class="fade-in has-sticky">' +
@@ -268,7 +267,7 @@
           [1, 2, 3, 4].map(n => '<option value="' + n + '"' + (n === 2 ? " selected" : "") + ">" +
             esc(n === 1 ? t("guest_1") : t("guests_n", { n })) + "</option>").join("") +
         "</select></div>" +
-        '<p style="color:var(--grigio);font-size:14.5px">' + esc(t("date_hint", { date: fmtDate(wd) })) + "</p>" +
+        '<p style="color:var(--grigio);font-size:14.5px">' + esc(t("date_hint", { date: fmtDateRange(CONFIG.WEDDING_START, CONFIG.WEDDING_END) })) + "</p>" +
         '<div class="form-msg" id="formMsg" role="alert"></div>' +
         '<div class="sticky-cta"><button type="submit" class="btn" id="submitBtn">' + esc(t("confirm_reservation")) + "</button></div>" +
       "</form></div>";

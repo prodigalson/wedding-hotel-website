@@ -63,7 +63,7 @@ const I18N = {
     map_open: "Open in Google Maps",
     whatsapp_us: "Questions? WhatsApp us",
     error_loading: "We couldn't load the hotels. Please check your connection and refresh the page.",
-    date_hint: "The wedding is on {date}."
+    date_hint: "The wedding weekend is {date}."
   },
 
   pt: {
@@ -127,7 +127,7 @@ const I18N = {
     map_open: "Abrir no Google Maps",
     whatsapp_us: "Dúvidas? Fale conosco no WhatsApp",
     error_loading: "Não foi possível carregar os hotéis. Verifique sua conexão e atualize a página.",
-    date_hint: "O casamento é em {date}."
+    date_hint: "O fim de semana do casamento é {date}."
   },
 
   it: {
@@ -191,7 +191,7 @@ const I18N = {
     map_open: "Apri in Google Maps",
     whatsapp_us: "Domande? Scrivici su WhatsApp",
     error_loading: "Non è stato possibile caricare gli hotel. Controlla la connessione e ricarica la pagina.",
-    date_hint: "Il matrimonio è il {date}."
+    date_hint: "Il weekend del matrimonio è {date}."
   }
 };
 
@@ -216,6 +216,12 @@ function fmtDate(iso) {
   if (!iso) return "";
   const d = new Date(iso + "T12:00:00");
   return d.toLocaleDateString(localeCode(), { weekday: undefined, year: "numeric", month: "long", day: "numeric" });
+}
+function fmtDateRange(isoStart, isoEnd) {
+  const d1 = new Date(isoStart + "T12:00:00"), d2 = new Date(isoEnd + "T12:00:00");
+  const f = new Intl.DateTimeFormat(localeCode(), { year: "numeric", month: "long", day: "numeric" });
+  if (typeof f.formatRange === "function") return f.formatRange(d1, d2);
+  return f.format(d1) + " – " + f.format(d2);
 }
 function fmtDateLong(iso) {
   const d = new Date(iso + "T12:00:00");

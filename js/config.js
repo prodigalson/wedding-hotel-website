@@ -8,7 +8,8 @@ const CONFIG = {
 
   /* --- The couple and the wedding --- */
   COUPLE_NAMES: "Michael and Isabella",            // Your names, exactly as you want them shown
-  WEDDING_DATE: "2027-06-12",                // Format: YYYY-MM-DD
+  WEDDING_START: "2027-06-17",               // First night of the wedding weekend (YYYY-MM-DD)
+  WEDDING_END: "2027-06-20",                 // Departure day (YYYY-MM-DD)
   VENUE_NAME: "Masseria San Vito",           // Name of the wedding venue
   VENUE_ADDRESS: "Triggianello, Conversano BA, Puglia, Italy",
   VENUE_LAT: 40.9330,                        // Venue map position (latitude)
