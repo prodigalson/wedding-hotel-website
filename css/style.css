@@ -371,96 +371,45 @@ body.landing-active .site-footer { display: none; }
   justify-content: space-between;
 }
 
-.landing .hero-title {
-  font-size: clamp(8rem, 15vw, 18rem);
-  font-weight: 900;
-  line-height: 0.8;
-  letter-spacing: -0.06em;
-  text-transform: capitalize;
+.landing .hero-block {
   position: absolute;
   top: 5vh;
   left: 2rem;
   z-index: 20;
+}
+
+.landing .hero-title {
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
   text-shadow: 0 4px 24px rgba(0,0,0,0.1);
   font-family: var(--font-landing);
   color: var(--white);
 }
 
 .landing .hero-title .offset { display: block; margin-left: 2rem; }
-.landing .hero-title .dot { color: var(--white); }
 
-.landing .technical-notation {
+.landing .sub-hero {
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: clamp(0.9rem, 1.4vw, 1.4rem);
   font-weight: 400;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
+  color: var(--white);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  position: absolute;
-  top: 70%;
-  left: 55%;
-  transform: translateY(-50%);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  margin-left: 0.35rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
 
-.landing .technical-notation::before {
+.landing .sub-hero::before {
   content: '';
   display: block;
   width: 40px;
   height: 1px;
   background-color: var(--white-70);
-}
-
-.landing .top-meta {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 1rem;
-  pointer-events: auto;
-}
-
-.landing .location-cluster {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.75rem;
-}
-
-.landing .coord-text {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--white-70);
-  text-align: right;
-}
-
-.landing .loc-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--white-70);
-  border-radius: 100px;
-  font-family: var(--font-landing);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  color: var(--white);
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-}
-
-.landing .loc-pill svg {
-  width: 14px;
-  height: 14px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.5;
 }
 
 .landing .cta-container {
@@ -536,64 +485,3 @@ body.landing-active .site-footer { display: none; }
   pointer-events: none;
 }
 
-.landing .bottom-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  width: 100%;
-  pointer-events: auto;
-}
-
-.landing .season-tag { display: flex; flex-direction: column; gap: 0.25rem; }
-
-.landing .season-title {
-  font-size: 1rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.landing .season-subtitle {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--white-70);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.landing .credits { text-align: right; font-family: var(--font-mono); }
-
-.landing .credits-top {
-  font-size: 0.75rem;
-  margin-bottom: 0.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.5rem;
-}
-
-.landing .credits-top span {
-  font-size: 1rem;
-  font-family: var(--font-landing);
-  font-weight: 500;
-}
-
-.landing .credits-bottom {
-  font-size: 0.65rem;
-  color: var(--white-70);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.landing .sys-code {
-  position: absolute;
-  bottom: 2.5rem;
-  right: 15%;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  opacity: 0.8;
-}
