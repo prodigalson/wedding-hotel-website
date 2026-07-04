@@ -226,7 +226,7 @@
         "<span>" + esc((h.distance_km || 0) + " km " + t("from_venue")) + "</span>" +
         "<span>" + esc(t("travel_time", { n: h.travel_minutes || "?" })) + "</span></div>" +
       '<div class="info-card"><h3>' + esc(t("about_hotel")) + "</h3><p>" + esc(hotelText(h, "description")) + "</p>" +
-        '<div class="amenity-row" style="margin-top:12px">' + (h.amenities || []).map(a => '<span class="amenity" style="background:#fff">' + esc(t("am_" + a)) + "</span>").join("") + "</div></div>" +
+        '<div class="amenity-row" style="margin-top:12px">' + (h.amenities || []).map(a => '<span class="amenity">' + esc(t("am_" + a)) + "</span>").join("") + "</div></div>" +
       '<div class="info-card"><h3>' + esc(t("room_types")) + "</h3>" + roomRows + "</div>" +
       '<div class="info-card"><h3>' + esc(t("location")) + "</h3><p>" + esc(h.address || "") + "</p>" +
         '<iframe class="map-frame" loading="lazy" title="Map" src="' + mapsEmbed(h.lat, h.lng, h.address || h.name) + '"></iframe>' +
